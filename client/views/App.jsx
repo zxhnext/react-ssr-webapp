@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Routes from '../config/router'
+
+import AppBar from './layout/app-bar'
 
 export default class App extends Component {
   componentDidMount() {
     // do
   }
 
+  componentDidCatch(error, info) {
+    console.error(error) // eslint-disable-line
+    console.log(info) // eslint-disable-line
+  }
+
   render() {
     return [
-      <div key="header">
-        <Link to="/">首页</Link>
-        <Link to="/detail">详情页</Link>
-      </div>,
+      <AppBar location={this.props.location} key="app-bar" />,
       <Routes key="routes" />,
     ]
   }

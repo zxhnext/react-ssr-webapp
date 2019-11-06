@@ -7,6 +7,8 @@ import {
 // import PropTypes from 'prop-types'
 // import { AppState } from '../../store/app-state'
 
+import Container from '../layout/container'
+
 @inject('appState') @observer
 export default class TopicList extends Component {
   constructor() {
@@ -33,14 +35,14 @@ export default class TopicList extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Helmet>
           <title>话题列表</title>
           <meta name="话题列表" content="这是话题列表" />
         </Helmet>
         <input type="text" onChange={this.changeName} />
         <div>{this.props.appState.msg}</div>
-      </div>
+      </Container>
     )
   }
 }
