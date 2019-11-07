@@ -2,21 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
+import { AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home'
-
-const styles = {
-  root: {
-    width: '100%',
-  },
-  flex: {
-    flex: 1,
-  },
-}
 
 class MainAppBar extends Component {
   constructor() {
@@ -58,7 +45,7 @@ class MainAppBar extends Component {
       <div className={classes.root}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton color="contrast" aria-label="Menu" onClick={this.goToIndex}>
+            <IconButton color="primary" aria-label="Menu" onClick={this.goToIndex}>
               <HomeIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
@@ -71,7 +58,8 @@ class MainAppBar extends Component {
                 </Button> :
                 null
             } */}
-            <Button color="contrast" onClick={this.goToUser}>
+            <Button color="primary" onClick={this.goToUser}>
+              登录
               {/* {user.isLogin ? user.info.loginName : '登录'} */}
             </Button>
           </Toolbar>
@@ -83,7 +71,14 @@ class MainAppBar extends Component {
 
 MainAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  // location: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(MainAppBar)
+export default withStyles({
+  root: {
+    width: '100%',
+  },
+  flex: {
+    flex: 1,
+  },
+})(MainAppBar)

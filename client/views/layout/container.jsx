@@ -31,7 +31,18 @@ Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
-  ]).isRequired,
+  ])
 }
 
-export default withStyles(styles)(Container)
+export default withStyles({
+  root: {
+    margin: 24,
+    marginTop: 80,
+  },
+  '@media screen and (max-width: 480px)': {
+    root: {
+      margin: 10,
+      marginTop: 70,
+    },
+  },
+})(Container)
