@@ -40,6 +40,10 @@ export class TopicStore {
     this.topics = topics.map(topic => new Topic(createTopic(topic)))
   }
 
+  @action addTopic(topic) {
+    this.topics.push(new Topic(createTopic(topic)))
+  }
+
   @action fetchTopics(tab) {
     return new Promise((resolve, reject) => {
       if (tab === this.tab && this.topics.length > 0) {
